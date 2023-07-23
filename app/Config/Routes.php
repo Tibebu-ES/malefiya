@@ -37,8 +37,18 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-service('auth')->routes($routes);
 
+service('auth')->routes($routes);
+//auth - tokens
+//generate token -given username/password
+$routes->get('api/v1/auth/token', 'Api\Auth\Token::generateToken');
+//revoke all  tokens associated with a user
+$routes->delete('api/v1/auth/token', 'Api\Auth\Token::revokeAllAccessTokens');
+//revoke a user token
+$routes->delete('api/v1/auth/token/single', 'Api\Auth\Token::revokeAccessToken');
+
+//register user
+$routes->get('api/v1/register', 'Api\Registration::registerUser');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

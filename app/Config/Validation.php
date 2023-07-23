@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Validation\MalefiyaRules;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Validation\CreditCardRules;
 use CodeIgniter\Validation\FileRules;
@@ -25,6 +26,7 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
+        MalefiyaRules::class
     ];
 
     /**
@@ -41,4 +43,23 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+
+    public $registerUser = [
+        'username' => [
+            'label' => 'Auth.username',
+            'rules' => 'min_length[3]|is_unique[users.username]',
+        ],
+        'email' => [
+            'label' => 'Auth.email',
+            'rules' => 'valid_email|is_unique[auth_identities.secret]',
+        ],
+        'password' => [
+            'label' => 'Auth.password',
+            'rules' => 'required|valid_password',
+        ],
+        'password_confirm' => [
+            'label' => 'Auth.passwordConfirm',
+            'rules' => 'required|matches[password]',
+        ],
+    ];
 }
