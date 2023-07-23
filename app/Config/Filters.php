@@ -37,7 +37,7 @@ class Filters extends BaseConfig
             // 'csrf',
             // 'invalidchars',
             //limit all routes
-            'session' => ['except' => ['login*', 'register', 'auth/a/*']],
+            'tokens' => ['except' => ['api/v1/login*', 'api/v1/register', 'api/v1/auth/*']],
         ],
         'after' => [
             'toolbar',
