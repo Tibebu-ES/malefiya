@@ -49,6 +49,10 @@ $routes->delete('api/v1/auth/token/single', 'Api\Auth\Token::revokeAccessToken')
 
 //register user
 $routes->get('api/v1/register', 'Api\Registration::registerUser');
+
+//calendar resource
+$routes->resource('api/v1/calendars',['controller' => 'Api\Calendar']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

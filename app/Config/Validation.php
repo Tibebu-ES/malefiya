@@ -62,4 +62,27 @@ class Validation extends BaseConfig
             'rules' => 'required|matches[password]',
         ],
     ];
+    /**
+     * rules for creating/updating calendar
+     * @var array
+     */
+    public $calendar = [
+        'name' => [
+            'label' => 'Validation.Calendar.name',
+            'rules' => 'permit_empty|min_length[3]|max_length[255]|required_without[id]|is_unique_with_filter[malefiya_calendars.name,id,{id},user_id,{user_id}]'
+        ],
+        'active' => [
+            'label' => 'Validation.Calendar.active',
+            'rules' => 'permit_empty|is_bool'
+        ],
+        'timezone' => [
+            'rules'  => 'permit_empty|timezone'
+        ],
+        'locale' => [
+            'rules'  => 'permit_empty|locale',
+        ],
+        'about' => [
+            'rules'  => 'permit_empty|max_length[255]',
+        ]
+    ];
 }

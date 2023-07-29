@@ -42,6 +42,13 @@ class CalendarModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    /**
+     * @return string[]
+     */
+    public function getAllowedFields(): array
+    {
+        return $this->allowedFields;
+    }
 
     /**
      * @param Generator $faker
@@ -89,7 +96,7 @@ class CalendarModel extends Model
         $calendar->user_id = $userid;
         $insertId = $this->insert($calendar);
         if($insertId){
-            $calendar->id = $insertId;
+            $calendar = $this->getCalendar($insertId);
         }else{
             throw new \Exception("Error on adding calendar");
         }
