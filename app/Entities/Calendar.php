@@ -9,9 +9,9 @@ class Calendar extends Entity
     private ?int $id = null;
     private string $name;
     private bool $active;
-    private string $timezone;
-    private string $locale;
-    private string $about;
+    private ?string $timezone;
+    private ?string $locale;
+    private ?string $about;
 
     protected $datamap = [];
     protected $dates   = ['created_at', 'updated_at', 'deleted_at'];
@@ -63,7 +63,7 @@ class Calendar extends Entity
     /**
      * @return bool
      */
-    public function isActive(): bool
+    public function getActive(): bool
     {
         return $this->active = $this->attributes['active'];
     }
@@ -79,7 +79,7 @@ class Calendar extends Entity
     /**
      * @return string
      */
-    public function getTimezone(): string
+    public function getTimezone(): ?string
     {
         return $this->timezone = $this->attributes['timezone'];
     }
@@ -95,7 +95,7 @@ class Calendar extends Entity
     /**
      * @return string
      */
-    public function getLocale(): string
+    public function getLocale(): ?string
     {
         return $this->locale = $this->attributes['locale'];
     }
@@ -111,9 +111,14 @@ class Calendar extends Entity
     /**
      * @return string
      */
-    public function getAbout(): string
+    public function getAbout(): ?string
     {
         return $this->about = $this->attributes['about'];
+    }
+
+    public function getUserId (): int
+    {
+        return $this->attributes['user_id'];
     }
 
 }
