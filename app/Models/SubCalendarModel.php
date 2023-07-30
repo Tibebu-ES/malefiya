@@ -43,6 +43,14 @@ class SubCalendarModel extends Model
     protected $afterDelete    = [];
 
     /**
+     * @return string[]
+     */
+    public function getAllowedFields(): array
+    {
+        return $this->allowedFields;
+    }
+
+    /**
      * @param Generator $faker
      * @return SubCalendar
      */

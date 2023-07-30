@@ -57,6 +57,13 @@ $routes->resource('api/v1/calendars',['controller' => 'Api\Calendar']);
 $routes->get('api/v1/userInfo', 'Api\UserInfo::showUserInfo');
 $routes->post('api/v1/userInfo', 'Api\UserInfo::saveUserInfo');
 
+//SubCalendars - in a Calendar
+$routes->get('api/v1/calendar/(:num)/subCalendars', 'Api\SubCalendar::getSubCalendars/$1');
+$routes->get('api/v1/calendar/(:num)/subCalendars/(:num)', 'Api\SubCalendar::getSubCalendar/$1/$2');
+$routes->post('api/v1/calendar/(:num)/subCalendars', 'Api\SubCalendar::createSubCalendar/$1');
+$routes->put('api/v1/calendar/(:num)/subCalendars/(:num)', 'Api\SubCalendar::updateSubCalendar/$1/$2');
+$routes->delete('api/v1/calendar/(:num)/subCalendars/(:num)', 'Api\SubCalendar::deleteSubCalendar/$1/$2');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
