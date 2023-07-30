@@ -48,10 +48,14 @@ $routes->delete('api/v1/auth/token', 'Api\Auth\Token::revokeAllAccessTokens');
 $routes->delete('api/v1/auth/token/single', 'Api\Auth\Token::revokeAccessToken');
 
 //register user
-$routes->get('api/v1/register', 'Api\Registration::registerUser');
+$routes->post('api/v1/register', 'Api\Registration::registerUser');
 
 //calendar resource
 $routes->resource('api/v1/calendars',['controller' => 'Api\Calendar']);
+
+//get UserInfo
+$routes->get('api/v1/userInfo', 'Api\UserInfo::showUserInfo');
+$routes->post('api/v1/userInfo', 'Api\UserInfo::saveUserInfo');
 
 /*
  * --------------------------------------------------------------------

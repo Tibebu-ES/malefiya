@@ -14,6 +14,15 @@ return [
     'locale' => 'Supplied value ({value}) for {field} is not valid.',
     'Calendar' => [
         'name' => 'Calendar Name',
-        'active' => 'Active'
+        'active' => 'Active',
+        'about' => 'About',
+        'locale' => 'Locale',
+        'timezone' => 'Timezone'
+    ],
+    'UserInfo' => [
+        'first_name' => 'First Name',
+        'last_name' => 'Last Name',
+        'locale' => 'Locale',
+        'timezone' => 'Timezone'
     ]
 ];

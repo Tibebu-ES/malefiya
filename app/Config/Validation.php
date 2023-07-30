@@ -61,6 +61,22 @@ class Validation extends BaseConfig
             'label' => 'Auth.passwordConfirm',
             'rules' => 'required|matches[password]',
         ],
+        'first_name' => [
+            'label' => 'Validation.UserInfo.first_name',
+            'rules' => 'permit_empty|min_length[3]|max_length[50]'
+        ],
+        'last_name' => [
+            'label' => 'Validation.UserInfo.last_name',
+            'rules' => 'permit_empty|min_length[3]|max_length[50]'
+        ],
+        'timezone' => [
+            'label' => 'Validation.UserInfo.timezone',
+            'rules'  => 'permit_empty|timezone'
+        ],
+        'locale' => [
+            'label' => 'Validation.UserInfo.locale',
+            'rules'  => 'permit_empty|locale',
+        ]
     ];
     /**
      * rules for creating/updating calendar
@@ -76,13 +92,38 @@ class Validation extends BaseConfig
             'rules' => 'permit_empty|is_bool'
         ],
         'timezone' => [
+            'label' => 'Validation.Calendar.timezone',
             'rules'  => 'permit_empty|timezone'
         ],
         'locale' => [
+            'label' => 'Validation.Calendar.locale',
             'rules'  => 'permit_empty|locale',
         ],
         'about' => [
+            'label' => 'Validation.Calendar.about',
             'rules'  => 'permit_empty|max_length[255]',
+        ]
+    ];
+    /**
+     * rules for updating UserInfo
+     * @var array
+     */
+    public $userInfo = [
+        'first_name' => [
+            'label' => 'Validation.UserInfo.first_name',
+            'rules' => 'permit_empty|min_length[3]|max_length[50]'
+        ],
+        'last_name' => [
+            'label' => 'Validation.UserInfo.last_name',
+            'rules' => 'permit_empty|min_length[3]|max_length[50]'
+        ],
+        'timezone' => [
+            'label' => 'Validation.UserInfo.timezone',
+            'rules'  => 'permit_empty|timezone'
+        ],
+        'locale' => [
+            'label' => 'Validation.UserInfo.locale',
+            'rules'  => 'permit_empty|locale',
         ]
     ];
 }
