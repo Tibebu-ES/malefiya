@@ -126,4 +126,27 @@ class Validation extends BaseConfig
             'rules'  => 'permit_empty|locale',
         ]
     ];
+
+    /**
+     * rules for creating/updating subCalendar
+     * @var array
+     */
+    public $subCalendar = [
+        'name' => [
+            'label' => 'Validation.SubCalendar.name',
+            'rules' => 'permit_empty|min_length[3]|max_length[255]|required_without[id]|is_unique_with_filter[malefiya_sub_calendars.name,id,{id},calendar_id,{calendar_id}]'
+        ],
+        'active' => [
+            'label' => 'Validation.SubCalendar.active',
+            'rules' => 'permit_empty|is_bool'
+        ],
+        'overlap' => [
+            'label' => 'Validation.SubCalendar.overlap',
+            'rules' => 'permit_empty|is_bool'
+        ],
+        'color' => [
+            'label' => 'Validation.SubCalendar.color',
+            'rules'  => 'permit_empty|required_without[id]|max_length[7]',
+        ]
+    ];
 }

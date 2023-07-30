@@ -13,8 +13,14 @@ class SubCalendar extends Entity
     private string $color;
 
     protected $datamap = [];
-    protected $dates   = ['created_at', 'updated_at', 'deleted_at'];
-    protected $casts   = [];
+    protected $dates   = [];
+    protected $casts   = [
+        'active' => 'boolean',
+        'overlap' => 'boolean',
+        'created_at' => 'timestamp',
+        'updated_at' => 'timestamp',
+        'deleted_at' => '?timestamp'
+    ];
 
     /**
      * @param int|null $id

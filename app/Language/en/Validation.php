@@ -24,5 +24,11 @@ return [
         'last_name' => 'Last Name',
         'locale' => 'Locale',
         'timezone' => 'Timezone'
-    ]
+    ],
+    'SubCalendar' => [
+        'name' => 'Sub-Calendar Name',
+        'active' => 'Active',
+        'overlap' => 'Overlap',
+        'color' => 'Color'
+    ],
 ];
